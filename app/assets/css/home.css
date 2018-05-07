@@ -1,0 +1,79 @@
+.home.m-container {
+    padding: 20px 10px;
+}
+
+/* message-box */
+.home .box-list {
+    display: flex;
+    align-items: flex-start;
+}
+
+.message-box {
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px #888;
+    padding: 5px;
+    min-width: 250px;
+    margin: 0 5px;
+}
+
+.message-box .box-title {
+    /* color: #1976d2; */
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.message-box .box-item a {
+    display: inline-block;
+}
+
+.message-box .box-item a:hover {
+    color: #1976d2;
+}
+
+/* box-detail */
+.quick-list {
+    min-width: 150px;
+    flex: 1;
+}
+
+.topic-list {
+    min-width: 400px;
+    flex: 3;
+}
+
+.topic-list .box-item a {
+    width: calc(100% - 200px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.topic-list .box-item .author-name {
+    color: #888;
+    text-align: right;
+    float: right;
+    line-height: 24px;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.overtime-list {
+    flex: 2;
+}
+
+.overtime-list .box-item a {
+    width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.overtime-list .person-name {
+    color: #888;
+    float: right;
+}

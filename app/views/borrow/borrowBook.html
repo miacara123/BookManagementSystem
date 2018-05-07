@@ -1,0 +1,101 @@
+<div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-4">
+                <input type="text" class="form-control" placeholder="红楼梦" ng-model="bookname">
+            </div>
+            <div class="col col-md-auto">
+                <button type="button" class="btn btn-outline-primary" ng-click="searchBooks(bookname)">搜索</button>
+            </div>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <ul class="borrow_list" id="borrow_list_head">
+            <li style="vertical-align: middle;">书名</li>
+            <li>作者</li>
+            <li>出版社</li>
+            <li>热度</li>
+            <li>库存</li>
+            <li>可借</li>
+            <li>借书</li>
+    </ul>
+    <div ng-repeat="item in bookList">
+        <ul class="borrow_list">
+            <li>{{item.title}}</li>
+            <li>{{item.author}}</li>
+            <li>{{item.press}}</li>
+            <li>{{item.read_count}}</li>
+            <li>{{item.stock.total}}</li>
+            <li>{{item.stock.total - item.stock.state.length}}</li>
+            <li><button ng-click="borrowBook(item)">借书</button></li>
+        </ul>
+    </div>
+
+    <div ng-show="visible" class="white_content ">
+        <span id="close-pic" ng-click="borrow_form_close()">关闭×</span>
+        <form name="borrowForm" novalidate>
+            <ul>
+                <li>
+                    <h2>借书表单</h2>
+                </li>
+                <li>
+                    <label for="bname">书名</label>
+                    <input type="text" value="{{bname}}" disabled>               
+                </li>
+            <li>
+                <label for="name">借阅人: </label>
+                <input type="text" name="name" placeholder="张三" ng-maxlength="5" ng-model="borrow_form.name" required> 
+                <sapn style="color:red" ng-show="borrowForm.name.$touched">
+                    <span ng-show="borrowForm.name.$error.required">用户名是必须的</span>
+                    <span ng-show="borrowForm.name.$error.maxlength">名字太长了</span>
+                </sapn>
+            </li>
+
+            <li>
+                    <label for="ID">工号: </label>
+                    <input text="text"  name="ID" ng-model="borrow_form.ID" placeholder="请输入8为工号" ng-pattern="/^[0-9A-Za-z]{8}$/" required>
+                    <sapn style="color: red" ng-show="borrowForm.ID.$touched">
+                        <span ng-show="borrowForm.ID.$error.pattern">格式不对</span>
+                        <span ng-show="borrowForm.ID.$error.required">不能空</span>
+                    </sapn>
+            </li>
+                <li>
+                    <label for="tel">电话: </label>
+                    <input name="tel" ng-model="borrow_form.tel" placeholder="请输入11位电话" ng-pattern="/^[0-9]{11}$/" required> 
+                    <sapn style="color: red" ng-show="borrowForm.tel.$touched">
+                        <span ng-show="borrowForm.tel.$error.pattern">输入的电话格式不对</span>
+                        <span ng-show="borrowForm.tel.$error.required">输入不能为空</span>
+                    </sapn>
+                </li>
+                <li>
+                    <label for="tel">部门: </label>
+                    <select ng-model="borrow_form.department" name="department" required>
+                        <option ng-repeat="branch in branchs" value="{{branch.name}}">{{branch.name}}</option>
+                    </select>
+                    <span style="color: red" ng-show="borrowForm.department.$touched">
+                        <span ng-show="borrowForm.department.$error.required">不能为空</span>
+                    </span>   
+                </li>
+
+                <li>
+                    <label for="now">借阅时间: </label>
+                    <input type="text" name="now"  ng-model="borrow_form.now" disabled>
+                </tr>
+
+                <li>
+                    <label for="time">归还时间:</label> 
+                    <input name="time" type="date" ng-model="borrow_form.time" required bor-time> 
+                    <span style="color:red" ng-show="borrowForm.time.$touched">
+                        <span ng-show="borrowForm.time.$error.borTime">
+                            归还时间必须大于借阅时间!
+                        </span>
+                    </span> 
+                </li>
+                <li>
+                    <button  class="submit" ng-click="borrow_push(borrow_form)"
+                     ng-disabled="borrowForm.$invalid">提交</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>

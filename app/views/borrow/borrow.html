@@ -1,0 +1,13 @@
+<div class="borrow m-container">
+    <div class="sidenav">
+        <div class="sidenav-item" 
+            ng-repeat="(index, item) in sidenavList"
+            ng-class="{selected: selectedIndex === index}" 
+            ng-click="changeIndex(index)">
+            <a ui-sref="{{item.href}}">{{item.name}}</a>
+        </div>
+    </div>
+    <div class="sidenav-content">
+        <ui-view></ui-view>
+    </div>
+</div>

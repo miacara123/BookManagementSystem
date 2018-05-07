@@ -1,0 +1,31 @@
+<div class="home m-container">
+    <div class="box-list">
+        <div class="message-box quick-list">
+            <div class="box-title">快捷方法</div>
+            <div class="box-item">
+                <a href="/#!/borrow/borrowBook">借书</a>
+            </div>
+            <div class="box-item">
+                <a href="/#!/borrow/returnBook">还书</a>
+            </div>
+            <div class="box-item">
+                <a href="/#!/borrow/returnBook">续借</a>
+            </div>
+        </div>
+        <div class="message-box topic-list">
+            <div class="box-title">热门图书</div>
+            <div class="box-item" ng-repeat="item in topicList">
+                <a href="#">{{item.title}}</a>
+                <span class="author-name">{{item.author}}</span>
+            </div>
+        </div>
+        <div class="message-box overtime-list">
+            <div class="box-title">到期图书</div>
+            <div class="box-item" ng-if="overtimeList == 0">暂无</div>
+            <div class="box-item" ng-repeat="item in overtimeList">
+                <a href="#">{{item.title}}</a>
+                <span class="person-name">{{item.reader}}</span>
+            </div>
+        </div>
+    </div>
+</div>

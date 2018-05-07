@@ -1,0 +1,46 @@
+<table class="table table-striped allbook">
+    <tr>
+        <th>书名</th>
+        <th>作者</th>
+        <th>出版社</th>
+        <th>热度</th>
+        <th>库存</th>
+        <th>可借</th>
+        <th>操作</th>                                                
+    </tr>
+    <tr ng-repeat="book in bookList | offset: currentPage*itemsPrePage | limitTo: itemsPrePage">
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.press}}</td>
+        <td>{{book.read_count}}</td>
+        <td class="col-xs-1">
+            <input type="number" class="book-stock form-control" ng-model="book.stock.total" ng-disabled="book.noedit === undifined">
+        </td>
+        <td>{{book.stock.total - book.stock.state.length}}</td>
+        <td>
+            <button class="btn btn-warning" ng-click="edit(book)">编辑</button>
+            <button class="btn btn-danger" ng-click="delete(book._id)" >删除</button>
+            <button class="btn btn-success" ng-click="save(book)" >保存</button>
+        </td>
+        <td></td> 
+    </tr>
+</table>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li>
+            <a ng-click="prevPage()" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li ng-class="{active: page == currentPage}" ng-repeat="page in allPage">
+            <a ng-click="setPage(page)">{{page+1}}</a>
+        </li>
+
+        <li>
+            <a ng-click="nextPage()" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

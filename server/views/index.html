@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book System</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="app/assets/css/main.css">
+    <link rel="stylesheet" href="app/assets/css/home.css">
+</head>
+<body ng-controller="appCtrl">
+    <my-header></my-header>
+    <ui-view></ui-view>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/components/header.js"></script>
+    <script src="app/components/popUp.js"></script>
+    <script src="app/views/home/home.js"></script>
+    <script src="app/views/book/book.js"></script>
+    <script src="app/views/book/allBook.js"></script>
+    <script src="app/views/book/addBook.js"></script>        
+    <script src="app/views/borrow/borrow.js"></script>
+    <script src="app/views/borrow/borrowBook.js"></script>
+    <script src="app/views/borrow/returnBook.js"></script>
+    <script src="app/views/reader/reader.js"></script>
+    <script src="app/views/reader/allReader.js"></script>
+    <script src="app/views/reader/loginReader.js"></script>
+</body>
+</html>

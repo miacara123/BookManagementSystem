@@ -1,0 +1,74 @@
+<div>
+    <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col col-lg-4">
+                    <input type="text" placeholder="红楼梦" class="form-control" ng-model="bookname">
+                </div>
+                <div class="col col-md-auto">
+                    <button type="button" class="btn btn-outline-primary" ng-click="sborbooks(bookname)">搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <div class="returnBookList">
+        <div>
+            <ul class="list-head">
+                <li>书名</li>
+                <li>作者</li>
+                <li>出版社</li>
+                <li>归还</li>
+                <li>续借</li>
+            </ul>
+        </div>
+        <div ng-repeat="item in bookList" class="return-list">
+            <ul class="return-list-content">
+                <li class="pad-top">{{item.title}}</li>
+                <li class="pad-top">{{item.author}}</li>
+                <li class="pad-top">{{item.press}}</li>
+                <li>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm" ng-click="give_item(item)">
+                        归还
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#renewBook" ng-click="regive_item(item)">
+                        续借
+                    </button>
+                </li>
+            </ul> 
+        </div>
+            <div class="modal fade bs-example-modal-sm" id="returnbook" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                            <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">此书借书人</h4>
+                                  </div>
+                            <ol class="state-list">
+                                <li ng-repeat="state in item.stock.state">
+                                    <sapn class="state-list-left">{{state.reader}}:{{state.expire | toLocaleDateString}}</sapn>
+                                    <span class="state-list-right"><button class="btn btn-default" ng-click="returnBook(item._id, state.reader)">归还</button></span>
+                                </li>
+                            </ol>
+                      </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="renewBook" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">此书借书人</h4>
+                              </div>
+                        <ol class="state-list">
+                            <li ng-repeat="state in item.stock.state">
+                                <sapn ng-model="expire" class="state-list-left">{{state.reader}}:{{state.expire | toLocaleDateString}}</sapn>
+                                <span class="state-list-right"><button class="btn btn-default" ng-click="renew(item._id, state.reader)">续借</button></span>
+                            </li>
+                        </ol>
+                  </div>
+            </div>
+        </div>
+    </div>

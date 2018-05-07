@@ -1,0 +1,22 @@
+{
+  "name": "BSH-Book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/www"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@uirouter/angularjs": "^1.0.15",
+    "angular": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "async": "^2.6.0",
+    "express": "^4.16.3",
+    "jshint": "^2.9.5",
+    "monk": "^6.0.5"
+  }
+}

@@ -1,0 +1,16 @@
+<header>
+    <nav>
+        <div class="header-title">图书管理系统</div>
+        <div class="header-list">
+            <ul>
+                <li ng-repeat="(index, item) in headerList">
+                    <a ui-sref="{{item.href}}" 
+                        ng-class="{selected: selectedIndex === index}" 
+                        ng-click="changeIndex(index)">
+                        <span>{{item.name}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

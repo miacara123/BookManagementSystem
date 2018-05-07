@@ -1,0 +1,32 @@
+<form class="form-horizontal add-book">
+    <div class="form-group ml">
+        <label class="lml pull-left" for="name" col-sm-2 control-label>书名：</label>
+        <div class="col-sm-10">
+            <input type="text" id="name" class="form-control" ng-model="title" >                    
+        </div> 
+    </div>
+    <div class="form-group ml">
+        <label class="lml pull-left" for="author" col-sm-2 control-label>作者：</label>
+        <div class="col-sm-10">
+            <input type="text" id="author" class="form-control" ng-model="author"/>
+        </div>    
+    </div>
+    <div class="form-group ml">
+        <label class="lml pull-left" for="press" col-sm-2 control-label>出版社：</label>
+        <div class="col-sm-10">
+            <input type="text" id="press" class="form-control ml-15" ng-model="press"/>
+        </div>    
+    </div>
+    <div class="form-group ml">
+        <label class="lml pull-left" for="stock" col-sm-2 control-label>库存：</label>
+        <div class="col-sm-10">
+            <input type="number" id="stock" class="form-control" ng-model="stock"/>
+        </div>    
+    </div>
+</form>
+
+<div class="form-group">
+    <button class="btn btn-success lml" ng-click="add()" data-toggle="modal" data-target="#myModal">
+    添加新图书
+    </button>
+</div>  
